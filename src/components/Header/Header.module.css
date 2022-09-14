@@ -1,4 +1,11 @@
+.Header {
+  padding-top: 7rem;
+  text-align: center;
+}
+
 .Logo {
   text-decoration: none;
   color: #666;
+  font-size: 5rem;
+  font-weight: bold;
 }
