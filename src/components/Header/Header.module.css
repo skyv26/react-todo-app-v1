@@ -1,11 +1,10 @@
 .Header {
-  padding-top: 7rem;
   text-align: center;
 }
 
 .Logo {
   text-decoration: none;
-  color: #666;
-  font-size: 5rem;
+  color: rgb(197, 197, 197);
+  font-size: 4.25rem;
   font-weight: bold;
 }
