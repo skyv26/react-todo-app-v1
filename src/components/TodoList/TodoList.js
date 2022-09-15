@@ -1,4 +1,6 @@
 import React from 'react';
+import { IoMdTrash } from 'react-icons/io';
+import style from './TodoList.module.css';
 
 class TodoList extends React.PureComponent {
   constructor(props) {
@@ -28,7 +30,17 @@ class TodoList extends React.PureComponent {
     const { todoItems } = this.state;
     return (
       <ul>
-        {todoItems.map((each) => `<li key={each.id}>${each}</li>`)}
+        {todoItems.map((each) => (
+          <li key={each.id} className={style.List}>
+            <div className={style.TodoListWrapper}>
+              <input type="checkbox" className={style.IsCompleted} />
+              <p className={style.Todos}>{each.description}</p>
+              <button type="button" className={style.DeleteTodo}>
+                <IoMdTrash />
+              </button>
+            </div>
+          </li>
+        ))}
       </ul>
     );
   }
