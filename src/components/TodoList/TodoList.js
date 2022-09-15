@@ -39,7 +39,7 @@ class TodoList extends React.PureComponent {
                 <IoMdTrash />
               </button>
             </div>
-            <input type="text" aria-label="update todo" className={style.UpdateFormInput} />
+            <input type="text" aria-label="update todo" className={`${style.UpdateFormInput} ${style.Disappear}`} />
           </li>
         ))}
       </ul>
