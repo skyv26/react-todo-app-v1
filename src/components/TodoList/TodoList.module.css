@@ -31,6 +31,11 @@
   font-size: 1.6rem;
 }
 
+
+.TodoEditForm.Disappear {
+  display: none;
+}
+
 .UpdateFormInput {
   position: absolute;
   display: flex;
@@ -39,8 +44,4 @@
   width: 99%;
   height: 70%;
   transform: translate(-50%, -50%);
-}
-
-.UpdateFormInput.Disappear {
-  display: none;
 }
