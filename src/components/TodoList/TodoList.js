@@ -26,11 +26,26 @@ class TodoList extends React.Component {
       // updateTodoToggle: false,
     };
     this.editTodoHandler = this.editTodoHandler.bind(this);
+    this.editTodoSubmitHandler = this.editTodoSubmitHandler.bind(this);
   }
 
-  editTodoHandler = (indx) => {
-    document.querySelector(`#todo-edit_form-${indx}`).classList.remove(`${style.Disappear}`);
-    // this.setState((prevState) => ({ ...prevState, updateTodoToggle: true }));
+  editTodoHandler = (e) => {
+    const { id, textContent } = e.target;
+    const [, indx] = id.split('-');
+    const form = document.querySelector(`#todo-edit_form-${indx}`);
+    form.classList.remove(`${style.Disappear}`);
+    const updateTodoInput = document.querySelector(`#UpdateFormInput-${indx}`);
+    updateTodoInput.value = textContent;
+  }
+
+  editTodoSubmitHandler = (e) => {
+    e.preventDefault();
+    const { id, firstChild } = e.target;
+    const [, , index] = id.split('-');
+    const todo = document.querySelector(`#todo-${index}`);
+    const form = document.querySelector(`#todo-edit_form-${index}`);
+    todo.textContent = firstChild.value;
+    form.classList.add(`${style.Disappear}`);
   }
 
   render() {
@@ -43,7 +58,8 @@ class TodoList extends React.Component {
               <input type="checkbox" className={style.IsCompleted} aria-label={`mark your task as ${this.checked ? 'uncompleted' : 'completed'}`} />
               <p
                 className={style.Todos}
-                onDoubleClick={() => { this.editTodoHandler(index); }}
+                onDoubleClick={(e) => { this.editTodoHandler(e); }}
+                id={`todo-${index}`}
               >
                 {each.description}
               </p>
@@ -51,8 +67,8 @@ class TodoList extends React.Component {
                 <IoMdTrash />
               </button>
             </div>
-            <form className={`${style.TodoEditForm} ${style.Disappear}`} id={`todo-edit_form-${index}`}>
-              <input type="text" aria-label="update todo" className={`${style.UpdateFormInput}`} />
+            <form className={`${style.TodoEditForm} ${style.Disappear}`} id={`todo-edit_form-${index}`} onSubmit={(e) => { this.editTodoSubmitHandler(e); }}>
+              <input type="text" aria-label="update todo" className={`${style.UpdateFormInput}`} id={`UpdateFormInput-${index}`} />
             </form>
           </li>
         ))}
