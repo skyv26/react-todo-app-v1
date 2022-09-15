@@ -1,8 +1,10 @@
 .List {
   display: flex;
+  width: 100%;
   padding: 0.6rem;
   border: thin solid transparent;
   border-bottom-color: rgb(214, 214, 214);
+  position: relative;
 }
 
 .TodoListWrapper {
@@ -27,4 +29,18 @@
 .DeleteTodo svg {
   color: red;
   font-size: 1.6rem;
+}
+
+.UpdateFormInput {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  width: 99%;
+  height: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.UpdateFormInput.Disappear {
+  display: none;
 }
