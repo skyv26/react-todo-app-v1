@@ -33,12 +33,13 @@ class TodoList extends React.PureComponent {
         {todoItems.map((each) => (
           <li key={each.id} className={style.List}>
             <div className={style.TodoListWrapper}>
-              <input type="checkbox" className={style.IsCompleted} />
+              <input type="checkbox" className={style.IsCompleted} aria-label={`mark your task as ${this.checked ? 'uncompleted' : 'completed'}`} />
               <p className={style.Todos}>{each.description}</p>
               <button type="button" className={style.DeleteTodo}>
                 <IoMdTrash />
               </button>
             </div>
+            <input type="text" aria-label="update todo" className={style.UpdateFormInput} />
           </li>
         ))}
       </ul>
