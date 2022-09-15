@@ -1,0 +1,30 @@
+.List {
+  display: flex;
+  padding: 0.6rem;
+  border: thin solid transparent;
+  border-bottom-color: rgb(214, 214, 214);
+}
+
+.TodoListWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.Todos {
+  margin-right: auto;
+}
+
+.DeleteTodo {
+  border: none;
+  border-radius: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.DeleteTodo svg {
+  color: red;
+  font-size: 1.6rem;
+}
