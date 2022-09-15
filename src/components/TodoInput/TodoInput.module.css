@@ -1,0 +1,30 @@
+.Form {
+  display: flex;
+  gap: 2rem;
+  padding: 0.25rem 1rem;
+  border-radius: 20rem;
+  box-shadow: 0 0 0.4rem 0.05rem #777;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  margin: auto;
+}
+
+.Text {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.Submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+
+.Submit svg {
+  color: darkcyan;
+  font-size: 1.6rem;
+}
