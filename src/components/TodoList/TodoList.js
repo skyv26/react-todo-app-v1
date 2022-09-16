@@ -1,30 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { IoMdTrash } from 'react-icons/io';
 import style from './TodoList.module.css';
 
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      todoItems: [
-        {
-          id: 1,
-          description: 'Wake up early in the morning',
-          completed: false,
-        },
-        {
-          id: 2,
-          description: 'Do breakfast with healthy food',
-          completed: false,
-        },
-        {
-          id: 3,
-          description: 'Complete react project',
-          completed: false,
-        },
-      ],
-      // updateTodoToggle: false,
-    };
     this.editTodoHandler = this.editTodoHandler.bind(this);
     this.editTodoSubmitHandler = this.editTodoSubmitHandler.bind(this);
     this.operationHandler = this.operationHandler.bind(this);
@@ -68,10 +50,10 @@ class TodoList extends React.Component {
   }
 
   render() {
-    const { todoItems } = this.state;
+    const { items } = this.props;
     return (
       <ul>
-        {todoItems.map((each, index) => (
+        {items.map((each, index) => (
           <li key={each.id} id={`todo-list-${index}`} className={style.List}>
             <div className={style.TodoListWrapper} id={`todo-wrapper-${index}`} role="presentation" onClick={(e) => { this.operationHandler(e, index); }}>
               <input type="checkbox" className={style.IsCompleted} aria-label={`mark your task as ${this.checked ? 'uncompleted' : 'completed'}`} />
@@ -95,5 +77,9 @@ class TodoList extends React.Component {
     );
   }
 }
+
+TodoList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+};
 
 export default TodoList;
