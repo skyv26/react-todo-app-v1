@@ -1,3 +1,11 @@
+.TodoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  height: 18rem;
+  overflow-y: scroll;
+}
+
 .List {
   display: flex;
   width: 100%;
@@ -19,6 +27,12 @@
   margin-right: auto;
 }
 
+.TodosCompleted {
+  font-style: italic;
+  color: rgb(151, 150, 150);
+  text-decoration: line-through;
+}
+
 .DeleteTodo {
   border: none;
   border-radius: 50%;
@@ -31,6 +45,10 @@
   font-size: 1.6rem;
 }
 
+.TodoEditForm.Disappear {
+  display: none;
+}
+
 .UpdateFormInput {
   position: absolute;
   display: flex;
@@ -41,6 +59,7 @@
   transform: translate(-50%, -50%);
 }
 
-.UpdateFormInput.Disappear {
-  display: none;
+.IsCompleted,
+.DeleteTodo {
+  display: inline-block;
 }
