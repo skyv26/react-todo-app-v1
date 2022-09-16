@@ -52,7 +52,7 @@ class TodoList extends React.Component {
   render() {
     const { items } = this.props;
     return (
-      <ul>
+      <ul className={style.TodoContainer}>
         {items.map((each, index) => (
           <li key={each.id} id={`todo-list-${index}`} className={style.List}>
             <div className={style.TodoListWrapper} id={`todo-wrapper-${index}`} role="presentation" onClick={(e) => { this.operationHandler(e, index); }}>
