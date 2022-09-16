@@ -19,6 +19,12 @@
   margin-right: auto;
 }
 
+.TodosCompleted {
+  font-style: italic;
+  color: rgb(151, 150, 150);
+  text-decoration: line-through;
+}
+
 .DeleteTodo {
   border: none;
   border-radius: 50%;
@@ -43,4 +49,8 @@
   width: 99%;
   height: 70%;
   transform: translate(-50%, -50%);
+}
+
+.IsCompleted, .DeleteTodo {
+  display: inline-block;
 }

@@ -27,6 +27,7 @@ class TodoList extends React.Component {
     };
     this.editTodoHandler = this.editTodoHandler.bind(this);
     this.editTodoSubmitHandler = this.editTodoSubmitHandler.bind(this);
+    this.operationHandler = this.operationHandler.bind(this);
   }
 
   editTodoHandler = (e) => {
@@ -48,16 +49,34 @@ class TodoList extends React.Component {
     form.classList.add(`${style.Disappear}`);
   }
 
+  operationHandler = (e, indx) => {
+    const { target } = e;
+    if (target.className === style.IsCompleted
+        || target.parentNode.className === style.DeleteTodo) {
+      if (target.className === style.IsCompleted) {
+        const task = document.querySelector(`#todo-${indx}`);
+        if (target.checked) {
+          task.classList.toggle(style.TodosCompleted);
+        } else {
+          task.classList.toggle(style.TodosCompleted);
+        }
+      } else if (target.parentNode.className === style.DeleteTodo) {
+        const getListItem = document.querySelector(`#todo-list-${indx}`);
+        getListItem.remove();
+      }
+    }
+  }
+
   render() {
     const { todoItems } = this.state;
     return (
       <ul>
         {todoItems.map((each, index) => (
           <li key={each.id} id={`todo-list-${index}`} className={style.List}>
-            <div className={style.TodoListWrapper} id={`todo-wrapper-${index}`}>
+            <div className={style.TodoListWrapper} id={`todo-wrapper-${index}`} role="presentation" onClick={(e) => { this.operationHandler(e, index); }}>
               <input type="checkbox" className={style.IsCompleted} aria-label={`mark your task as ${this.checked ? 'uncompleted' : 'completed'}`} />
               <p
-                className={style.Todos}
+                className={`${style.Todos}`}
                 onDoubleClick={(e) => { this.editTodoHandler(e); }}
                 id={`todo-${index}`}
               >
