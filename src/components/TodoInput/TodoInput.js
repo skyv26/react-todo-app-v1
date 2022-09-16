@@ -51,7 +51,7 @@ class TodoInput extends React.Component {
   render() {
     const { todoItems } = this.state;
     return (
-      <>
+      <div className={style.TodoInteractionWrapper}>
         <form className={style.Form} onSubmit={(e) => { this.createTodoHandler(e); }}>
           <input type="text" className={style.Text} placeholder="Add todo..." />
           <button type="submit" className={style.Submit}>
@@ -59,7 +59,7 @@ class TodoInput extends React.Component {
           </button>
         </form>
         <TodoList items={todoItems} />
-      </>
+      </div>
     );
   }
 }
