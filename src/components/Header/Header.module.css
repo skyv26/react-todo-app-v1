@@ -49,13 +49,13 @@
   padding: 1rem;
 }
 
-.MenuLink { 
+.MenuLink {
   font-size: 1.25rem;
   color: cyan;
   font-weight: bold;
 }
 
-.MenuLink:hover { 
+.MenuLink:hover {
   font-size: 1.25rem;
 }
 

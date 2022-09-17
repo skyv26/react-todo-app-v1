@@ -38,8 +38,7 @@
 }
 
 @media (min-width: 768px) {
-
   .AboutNav {
     transform: translate(-50%, 12%);
-  } 
+  }
 }
