@@ -50,6 +50,7 @@ class TodoInput extends React.Component {
     const { todoItems } = this.state;
     return (
       <div className={style.TodoInteractionWrapper}>
+        <a href="/" className={style.Logo}>todos</a>
         <form className={style.Form} onSubmit={(e) => { this.createTodoHandler(e); }}>
           <input type="text" className={style.Text} placeholder="Add todo..." />
           <button type="submit" className={style.Submit}>
