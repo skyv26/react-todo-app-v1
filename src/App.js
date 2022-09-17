@@ -1,22 +1,25 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from './components/Header/Header';
 import TodoInput from './components/TodoInput/TodoInput';
-import AboutApp from './components/About/AboutApp';
-import AboutAuthor from './components/About/AboutAuthor';
+import About from './components/About/About';
 
 class App extends React.PureComponent {
   render() {
     return (
       <>
-        <Route path="/about-app">
-          <AboutApp />
-        </Route>
-        <Route path="/about-author">
-          <AboutAuthor />
-        </Route>
         <Header />
-        <TodoInput />
+        <Switch>
+          <Route path="/" exact>
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/home">
+            <TodoInput />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+        </Switch>
       </>
     );
   }
