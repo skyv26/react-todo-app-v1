@@ -7,26 +7,19 @@ import style from './TodoInput.module.css';
 class TodoInput extends React.Component {
   constructor(props) {
     super(props);
+    this.localStorageName = 'daily_todos';
     this.state = {
-      todoItems: [
-        {
-          id: 1,
-          description: 'Wake up early in the morning',
-          completed: false,
-        },
-        {
-          id: 2,
-          description: 'Do breakfast with healthy food',
-          completed: false,
-        },
-        {
-          id: 3,
-          description: 'Complete react project',
-          completed: false,
-        },
-      ],
+      todoItems: [],
     };
     this.createTodoHandler = this.createTodoHandler.bind(this);
+  }
+
+  componentDidMount() {
+    const localStorageData = JSON.parse(localStorage.getItem(this.localStorageName)) || [];
+    this.setState((prev) => ({
+      ...prev,
+      todoItems: localStorageData,
+    }));
   }
 
   createTodoHandler = (e) => {
@@ -41,9 +34,14 @@ class TodoInput extends React.Component {
         description: textData,
         completed: false,
       };
-      this.setState((prev) => ({
-        todoItems: [...prev.todoItems, newObj],
-      }));
+      this.setState((prev) => {
+        const newData = [...prev.todoItems, newObj];
+        const newState = {
+          todoItems: newData,
+        };
+        localStorage.setItem(this.localStorageName, JSON.stringify(newData));
+        return newState;
+      });
       e.target.reset();
     }
   };
@@ -58,7 +56,7 @@ class TodoInput extends React.Component {
             <IoMdAddCircle />
           </button>
         </form>
-        <TodoList items={todoItems} />
+        <TodoList items={todoItems} storageName={this.localStorageName} stateData={this.setState} />
       </div>
     );
   }
