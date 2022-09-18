@@ -1,0 +1,76 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: max-content;
+  height: max-content;
+  gap: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.ExpandHeader {
+  width: 80vw;
+  height: 100vh;
+  background-color: #008b8b;
+}
+
+.MenuButton {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background-color: transparent;
+}
+
+.MenuButton:hover {
+  cursor: pointer;
+}
+
+.MenuButton svg {
+  color: rgb(134, 134, 134);
+  font-size: 2.75rem;
+}
+
+.ExpandHeader svg {
+  color: white;
+}
+
+.Navigation {
+  display: block;
+  color: cyan;
+}
+
+.UnorderedList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 1rem;
+}
+
+.MenuLink {
+  font-size: 1.25rem;
+  color: cyan;
+  font-weight: bold;
+}
+
+.MenuLink:hover {
+  font-size: 1.25rem;
+}
+
+.MenuLink.active {
+  color: red;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .Header {
+    position: unset;
+  }
+
+  .ExpandHeader {
+    width: 25%;
+    background-color: #008b8b;
+  }
+}

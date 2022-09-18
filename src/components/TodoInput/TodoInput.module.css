@@ -1,0 +1,48 @@
+.TodoInteractionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+  margin: auto;
+  padding: 4rem 2rem 0 2rem;
+}
+
+.Logo {
+  text-decoration: none;
+  color: rgb(197, 197, 197);
+  font-size: 4.25rem;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.Form {
+  display: flex;
+  gap: 2rem;
+  padding: 0.25rem 1rem;
+  border-radius: 20rem;
+  box-shadow: 0 0 0.4rem 0.05rem #777;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  margin: auto;
+}
+
+.Text {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.Submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+
+.Submit svg {
+  color: darkcyan;
+  font-size: 1.6rem;
+}
